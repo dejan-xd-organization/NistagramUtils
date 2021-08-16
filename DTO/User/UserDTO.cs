@@ -7,7 +7,7 @@ using NistagramSQLConnection.Model;
 
 namespace NistagramUtils.DTO
 {
-    public class UserDTO
+    public class UserDTO : UserInformationDTO
     {
         public long id { get; set; }
         public string firstName { get; set; }

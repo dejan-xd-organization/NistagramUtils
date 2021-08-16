@@ -2,11 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NistagramSQLConnection\NistagramSQLConnection.csproj" />
+    <PackageReference Include="NistagramSQLConnection" Version="1.0.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.12.1" />
   </ItemGroup>
+
+  <!--<ItemGroup>
+    <ProjectReference Include="..\NistagramSQLConnection\NistagramSQLConnection.csproj" />
+  </ItemGroup>-->
 
 </Project>

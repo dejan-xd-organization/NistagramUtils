@@ -41,11 +41,11 @@ jobs:
           dotnet-version: '5.0.x'
           
       - name: Install dependencies
-        run: dotnet restore NistagramUtils/NistagramUtils.csproj #-nowarn:msb3202,nu1503 -p:RestoreUseSkipNonexistentTargets=false
+        run: dotnet restore NistagramUtils.csproj #-nowarn:msb3202,nu1503 -p:RestoreUseSkipNonexistentTargets=false
       - name: Build
-        run: dotnet build NistagramUtils/NistagramUtils.csproj --configuration release
+        run: dotnet build NistagramUtils.csproj --configuration release
       - name: Test
-        run: dotnet test NistagramUtils/NistagramUtils.csproj --configuration release
+        run: dotnet test NistagramUtils.csproj --configuration release
         
         
   SonarCloud:

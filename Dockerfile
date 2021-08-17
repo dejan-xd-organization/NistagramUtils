@@ -7,7 +7,7 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-RUN dotnet restore "NistagramUtils.csproj"
+RUN dotnet restore
 COPY . .
 WORKDIR "/src/NistagramUtils"
 RUN dotnet build "NistagramUtils.csproj" -c Release -o /app/build

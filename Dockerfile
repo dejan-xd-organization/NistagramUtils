@@ -1,3 +1,4 @@
+  
 #See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
 FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
@@ -6,10 +7,10 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["./NistagramUtils.csproj", "NistagramUtils/"]
-RUN dotnet restore "NistagramUtils.csproj"
+COPY ["./NistagramUtils/NistagramUtils.csproj", "NistagramUtils/"]
+RUN dotnet restore "NistagramUtils/NistagramUtils.csproj"
 COPY . .
-WORKDIR "/src"
+WORKDIR "/src/NistagramUtils"
 RUN dotnet build "NistagramUtils.csproj" -c Release -o /app/build
 
 FROM build AS publish

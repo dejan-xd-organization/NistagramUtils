@@ -6,7 +6,7 @@ namespace NistagramUtils.Offline.Post.Model
     public class OfflinePost
     {
         private long id { get; set; }
-        private User1 user { get; set; }
+        private User user { get; set; }
         private DateTime timePublished { get; set; }
         private string postImage { get; set; }
         private int likes { get; set; }

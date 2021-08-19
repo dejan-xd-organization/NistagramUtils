@@ -16,6 +16,8 @@ namespace NistagramUtils.DTO
         public string email { get; set; }
         public string img { get; set; }
 
+        public UserDTO() { }
+
         public UserDTO(User user)
         {
             id = user.id;

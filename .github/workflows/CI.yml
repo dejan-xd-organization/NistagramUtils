@@ -35,8 +35,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           append_to_pre_release_tag: ""
           default_bump: major    
-      - name: Git Semantic Version
-        uses: PaulHatch/semantic-version@v4.0.2
+
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -64,6 +63,8 @@ jobs:
         with:
             name: artifacts_from_ubuntu
             path: results/artifacts/
+      - name: Git Semantic Version
+        uses: PaulHatch/semantic-version@v4.0.2
 
   Dotnet:
     runs-on: ubuntu-latest

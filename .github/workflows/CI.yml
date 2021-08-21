@@ -10,6 +10,61 @@ on:
   workflow_dispatch:
 
 jobs:
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Out Repo Dotnet
+        uses: actions/checkout@v2
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '5.0.x'
+      - name: Git Semantic Version
+        uses: PaulHatch/semantic-version@v4.0.2
+      #- name: Semantic Release
+      #  uses: cycjimmy/semantic-release-action@v2
+      #  with:
+      #    semantic_version: 15.13.28  # It is recommended to specify specifying version range
+      #                                # for semantic-release.
+      #  env:
+      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #    NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Bump version and push tag
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v5.5
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          append_to_pre_release_tag: ""
+          default_bump: major    
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: ${{ steps.tag_version.outputs.new_tag }}
+          release_name: Release ${{ steps.tag_version.outputs.new_tag }}
+          prerelease: false    
+      - name: Install dependencies
+        run: dotnet restore NistagramUtils.csproj #-nowarn:msb3202,nu1503 -p:RestoreUseSkipNonexistentTargets=false
+      - name: Test with dotnet
+        run: dotnet test NistagramUtils.csproj --configuration release --logger:"liquid.md;LogFileName=${{github.workspace}}/${{env.file_name}};Title=${{env.title}};"
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v2
+        if: ${{always()}}
+        with:
+          name: 'test_artifacts'
+          path: ${{github.workspace}}/${{env.file_name}}
+      - name: Create directory results/artifacts 
+        run: 'mkdir --parents results/artifacts'
+      - name: Create ci-env.txt in path directory
+        run: 'env | grep GITHUB_ | sort > results/artifacts/ci-env.txt'
+      - uses: actions/upload-artifact@v2
+        with:
+            name: artifacts_from_ubuntu
+            path: results/artifacts/
+
   Dotnet:
     runs-on: ubuntu-latest
     steps:

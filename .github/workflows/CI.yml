@@ -20,8 +20,6 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: '5.0.x'
-      - name: Git Semantic Version
-        uses: PaulHatch/semantic-version@v4.0.2
       #- name: Semantic Release
       #  uses: cycjimmy/semantic-release-action@v2
       #  with:
@@ -37,6 +35,8 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           append_to_pre_release_tag: ""
           default_bump: major    
+      - name: Git Semantic Version
+        uses: PaulHatch/semantic-version@v4.0.2
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1

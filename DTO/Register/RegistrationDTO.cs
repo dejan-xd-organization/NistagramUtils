@@ -14,7 +14,7 @@ namespace NistagramUtils.DTO.Register
         public string email { get; set; }
         public string password { get; set; }
         public string sex { get; set; }
-        public DateTime dateOfBirth { get; set; }
+        public DateTime? dateOfBirth { get; set; }
         public DateTime dateOfRegistration { get; set; }
     }
 }

@@ -6,6 +6,7 @@ using AutoMapper;
 using NistagramSQLConnection.Model;
 using NistagramUtils.DTO;
 using NistagramUtils.DTO.Register;
+using NistagramUtils.DTO.WallPost;
 
 namespace NistagramUtils.Mapper
 {
@@ -18,6 +19,9 @@ namespace NistagramUtils.Mapper
 
             CreateMap<RegistrationDTO, User>();
             CreateMap<User, RegistrationDTO>();
+
+            CreateMap<WallPostDTO, WallPost>();
+            CreateMap<WallPost, WallPostDTO>();
         }
     }
 }

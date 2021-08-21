@@ -16,6 +16,16 @@ jobs:
     steps:
       - name: Check Out Repo Dotnet
         uses: actions/checkout@v2
+      - name: Create semantic version
+        id: versioning
+        uses: paulhatch/semantic-version@v4.0.2
+        with:
+          tag_prefix: ""
+          major_pattern: "(MAJOR)"
+          minor_pattern: "(MINOR)"
+          format: "${major}.${minor}.${patch}"
+          short_tags: false
+          bump_each_commit: true
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v1
         with:
@@ -63,8 +73,6 @@ jobs:
         with:
             name: artifacts_from_ubuntu
             path: results/artifacts/
-      - name: Git Semantic Version
-        uses: PaulHatch/semantic-version@v4.0.2
 
   Dotnet:
     runs-on: ubuntu-latest

@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NistagramUtils.DTO.Register
 {
-    public class RegistrationDTO
+    public class RegistrationDto
     {
         public string firstName { get; set; }
         public string lastName { get; set; }
@@ -14,7 +10,7 @@ namespace NistagramUtils.DTO.Register
         public string email { get; set; }
         public string password { get; set; }
         public string sex { get; set; }
-        public DateTime dateOfBirth { get; set; }
+        public DateTime? dateOfBirth { get; set; }
         public DateTime dateOfRegistration { get; set; }
     }
 }

@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NistagramSQLConnection.Model;
+﻿using NistagramSQLConnection.Model;
 
 namespace NistagramUtils.DTO
 {
-    public class UserDTO : UserInformationDTO
+    public class UserDto : UserInformationDto
     {
         public long id { get; set; }
         public string firstName { get; set; }
@@ -16,7 +11,9 @@ namespace NistagramUtils.DTO
         public string email { get; set; }
         public string img { get; set; }
 
-        public UserDTO(User user)
+        public UserDto() { }
+
+        public UserDto(User user)
         {
             id = user.id;
             firstName = user.firstName;

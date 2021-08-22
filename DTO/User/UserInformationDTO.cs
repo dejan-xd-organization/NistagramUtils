@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NistagramUtils.DTO
+﻿namespace NistagramUtils.DTO
 {
-    public class UserInformationDTO
+    public class UserInformationDto
     {
-        //TODO dodatne informacije za usera
+        // URADITI dodatne informacije za usera
     }
 }

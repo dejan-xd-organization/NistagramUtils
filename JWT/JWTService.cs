@@ -1,13 +1,9 @@
-﻿using System;
+﻿using NistagramSQLConnection.Model;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NistagramSQLConnection.Model;
 
 namespace NistagramUtils.JWT
 {
-    public static class JWTService
+    public static class JwtService
     {
         private static Dictionary<string, User> activeUsers = new Dictionary<string, User>();
 
@@ -16,7 +12,7 @@ namespace NistagramUtils.JWT
             User u = null;
             if (!activeUsers.TryGetValue(jwt, out u))
             {
-                if(!activeUsers.TryAdd(jwt, user))
+                if (!activeUsers.TryAdd(jwt, user))
                 {
                     return true;
                 }

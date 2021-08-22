@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NistagramUtils.DTO
+﻿namespace NistagramUtils.DTO
 {
-    public class LoginResponseDTO
+    public class LoginResponseDto
     {
-        public string status;
-        public string jwt;
-        public UserDTO userDTO;
+        public string status { get; set; }
+        public string jwt { get; set; }
+        public UserDto userDTO { get; set; }
     }
 }

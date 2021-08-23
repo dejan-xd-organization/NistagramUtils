@@ -1,5 +1,4 @@
-﻿using NistagramSQLConnection.Model;
-
+﻿
 namespace NistagramUtils.DTO
 {
     public class UserDto : UserInformationDto
@@ -13,7 +12,7 @@ namespace NistagramUtils.DTO
 
         public UserDto() { }
 
-        public UserDto(User user)
+        public UserDto(NistagramSQLConnection.Model.User user)
         {
             id = user.id;
             firstName = user.firstName;

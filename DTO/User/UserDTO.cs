@@ -9,6 +9,8 @@ namespace NistagramUtils.DTO
         public string username { get; set; }
         public string email { get; set; }
         public string img { get; set; }
+        public int? followers { get; set; }
+        public int? followings { get; set; }
 
         public UserDto() { }
 
@@ -20,6 +22,8 @@ namespace NistagramUtils.DTO
             username = user.username;
             email = user.email;
             img = user.profileImg;
+            followers = user.userFollowers?.Count;
+            followings = user.userFollowings?.Count;
         }
     }
 }

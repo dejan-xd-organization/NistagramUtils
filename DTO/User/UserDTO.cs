@@ -1,5 +1,4 @@
-﻿using NistagramSQLConnection.Model;
-
+﻿
 namespace NistagramUtils.DTO
 {
     public class UserDto : UserInformationDto
@@ -10,10 +9,12 @@ namespace NistagramUtils.DTO
         public string username { get; set; }
         public string email { get; set; }
         public string img { get; set; }
+        public int? followers { get; set; }
+        public int? followings { get; set; }
 
         public UserDto() { }
 
-        public UserDto(User user)
+        public UserDto(NistagramSQLConnection.Model.User user)
         {
             id = user.id;
             firstName = user.firstName;
@@ -21,6 +22,8 @@ namespace NistagramUtils.DTO
             username = user.username;
             email = user.email;
             img = user.profileImg;
+            followers = user.userFollowers?.Count;
+            followings = user.userFollowings?.Count;
         }
     }
 }

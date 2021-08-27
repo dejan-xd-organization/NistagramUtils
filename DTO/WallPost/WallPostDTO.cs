@@ -1,6 +1,7 @@
 ﻿using NistagramSQLConnection.Model;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace NistagramUtils.DTO.WallPost
 {
@@ -29,6 +30,19 @@ namespace NistagramUtils.DTO.WallPost
             imagePost = wp.imagePost;
             postDescription = wp.postDescription;
             IsLike(postReactions);
+        }
+
+        public WallPostDto(NistagramSQLConnection.Model.WallPost wp)
+        {
+            id = wp.id;
+            if (wp.userPosts.Count > 0)
+            {
+                user = new UserDto(wp.userPosts.Select(x => x.user).FirstOrDefault());
+            }
+            timePublis = wp.timePublis;
+            imagePost = wp.imagePost;
+            postDescription = wp.postDescription;
+            IsLike(wp.postReactions);
         }
 
         private void IsLike(ICollection<PostReaction> postReactions)

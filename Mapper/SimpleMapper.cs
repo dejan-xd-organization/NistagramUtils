@@ -2,6 +2,7 @@
 using NistagramSQLConnection.Model;
 using NistagramUtils.DTO;
 using NistagramUtils.DTO.Register;
+using NistagramUtils.DTO.User;
 using NistagramUtils.DTO.WallPost;
 
 namespace NistagramUtils.Mapper
@@ -18,6 +19,12 @@ namespace NistagramUtils.Mapper
 
             CreateMap<WallPostDto, WallPost>();
             CreateMap<WallPost, WallPostDto>();
+
+            CreateMap<UpdateUserDto, User>();
+            CreateMap<User, UpdateUserDto>();
+
+            CreateMap<ChangePasswordDto, User>();
+            CreateMap<User, ChangePasswordDto>();
         }
     }
 }

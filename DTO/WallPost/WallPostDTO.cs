@@ -45,6 +45,19 @@ namespace NistagramUtils.DTO.WallPost
             IsLike(wp.postReactions);
         }
 
+        public WallPostDto(NistagramSQLConnection.Model.WallPost wp, NistagramSQLConnection.Model.User u)
+        {
+            id = wp.id;
+            if (wp.userPosts.Count > 0)
+            {
+                user = new UserDto(u);
+            }
+            timePublis = wp.timePublis;
+            imagePost = wp.imagePost;
+            postDescription = wp.postDescription;
+            IsLike(wp.postReactions);
+        }
+
         private void IsLike(ICollection<PostReaction> postReactions)
         {
             int countLike = 0;

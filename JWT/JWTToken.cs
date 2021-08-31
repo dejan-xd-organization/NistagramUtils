@@ -1,9 +1,9 @@
-﻿using Microsoft.IdentityModel.Tokens;
-using NistagramSQLConnection.Model;
-using System;
+﻿using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Microsoft.IdentityModel.Tokens;
+using NistagramSQLConnection.Model;
 
 namespace NistagramUtils.JWT
 {
@@ -11,7 +11,7 @@ namespace NistagramUtils.JWT
     {
         private const string SecretKey = "uUtEMfZVfgMXdRWky0HHSCjS2C2xMogRwy/3DSjiDj99Vy8ECD0Jv9KOibLRz70shjFSL0JNlV4Hbe4VGMJfMO0SFMg9dpFoFUL5ZJfb4W9BP6JpzYtEJZREPF+GTRjLtFT5nCY98dOzZFR3XnLijtLg9+I7ceg1tZ1CDXHF5tE=";
 
-        public JwtToken() { }
+        protected JwtToken() { }
 
         public static string GenerateJSONWebToken(User user)
         {

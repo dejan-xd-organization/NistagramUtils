@@ -21,5 +21,8 @@ namespace NistagramUtils.DTO
 
         [JsonProperty("img")]
         public string img { get; set; }
+
+        [JsonProperty("isPublicProfile")]
+        public bool isPublicProfile { get; set; }  // is user profile public or not?
     }
 }

@@ -6,6 +6,7 @@ namespace NistagramUtils.DTO.WallPost
     {
         public long userId { get; set; }
         public string description { get; set; }
+        public bool isPublic { get; set; }
 
     }
 

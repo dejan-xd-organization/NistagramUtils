@@ -37,7 +37,27 @@ namespace NistagramUtils.DTO
             if (user.relationship != null) relationship = user.relationship;
             isPublicProfile = user.isPublicProfile;
             if (user.dateOfBirth != null) dateOfBirth = user.dateOfBirth;
+        }
 
+        public UserDto(NistagramSQLConnection.Model.User user, bool isPublic)
+        {
+            id = user.id;
+            if (user.firstName != null) firstName = user.firstName;
+            if (user.lastName != null) lastName = user.lastName;
+
+            if (isPublic)
+            {
+                if (user.username != null) username = user.username;
+                if (user.email != null) email = user.email;
+                if (user.profileImg != null) img = user.profileImg;
+                followers = user.userFollowers?.Count;
+                followings = user.userFollowings?.Count;
+                if (user.address != null) address = user.address;
+                if (user.sex != null) sex = user.sex;
+                if (user.relationship != null) relationship = user.relationship;
+                isPublicProfile = user.isPublicProfile;
+                if (user.dateOfBirth != null) dateOfBirth = user.dateOfBirth;
+            }
         }
     }
 }

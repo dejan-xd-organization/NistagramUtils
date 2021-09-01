@@ -21,6 +21,7 @@ namespace NistagramUtils.DTO.WallPost
         public int like { get; set; }
 
         public int dislike { get; set; }
+        public bool isPublic { get; set; }
 
         public WallPostDto(NistagramSQLConnection.Model.WallPost wp, NistagramSQLConnection.Model.User enumerable, ICollection<PostReaction> postReactions)
         {
@@ -42,6 +43,7 @@ namespace NistagramUtils.DTO.WallPost
             timePublis = wp.timePublis;
             imagePost = wp.imagePost;
             postDescription = wp.postDescription;
+            isPublic = wp.isPublic;
             IsLike(wp.postReactions);
         }
 
@@ -55,6 +57,7 @@ namespace NistagramUtils.DTO.WallPost
             timePublis = wp.timePublis;
             imagePost = wp.imagePost;
             postDescription = wp.postDescription;
+            isPublic = wp.isPublic;
             IsLike(wp.postReactions);
         }
 
